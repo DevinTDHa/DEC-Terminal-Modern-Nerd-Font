@@ -4,21 +4,24 @@ Vintage font from Digital Electronics Corp (DEC) VT220 terminals for your termin
 Now patched to include [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
 
 This repo contains a patch for [DEC Terminal Modern](https://www.dafont.com/dec-terminal-modern.font). It adds Nerd Fonts glyphs
-and width adjustments. I can't find the author but huge thanks for whoever uploaded published this!
+and width adjustments. I can't find the author but huge thanks to whoever uploaded this!
 
-When using this font however, it appears too thin for my eyes. And looking at the wonderful blog post [Raster CRT Typography (According to DEC)](https://www.masswerk.at/nowgobang/2019/dec-crt-typography), I did a very scientific test by checking the pixel differnences in phtopea to stretch the font by 9%. Now its nice.
+When using this font however, it appears too thin for my eyes. After reading the wonderful blog post [Raster CRT Typography (According to DEC)](https://www.masswerk.at/nowgobang/2019/dec-crt-typography), I did a very scientific test by checking the pixel differences in Photopea to stretch the font by 9%. Now it's nice.
 
+> ![terminal](attachments/term.png)
+> Wezterm running the font with the gruvbox color scheme.
 
-![terminal](attachments/term.png)
+You can find the standard and stretched version in the [releases](releases).
 
-You can find the standard and stretched version in the [releases](releases/latest).
-
+> ![NOTE]
+>
+> Some icons will be a bit iffy, but most of them should look ok.
 
 ## Requirements
 
 - The [DEC Terminal Modern](https://www.dafont.com/dec-terminal-modern.font) ttf font file
 - font-patcher from the [nerd-fonts](https://github.com/ryanoasis/nerd-fonts#font-patcher) repo
-  - Will also provide instructions for running fontforge
+  - The nerd-fonts repo will also provide instructions on how to get and run fontforge for the script below
 
 ## Steps
 
@@ -39,11 +42,7 @@ You can find the standard and stretched version in the [releases](releases/lates
      --outputdir $PWD/out \
      --extension ttf \
      $PWD/out/_decterm_scaled.ttf
-   ```
-
-## Output
-
-`DECTerminalModernScaledNerdFontMono-Regular.ttf` to be used anywhere you wish.
+    ```
 
 ## CLI Reference — `process_font.py`
 
@@ -51,5 +50,9 @@ You can find the standard and stretched version in the [releases](releases/lates
 fontforge -script process_font.py <input.ttf> <output.ttf> <scale_factor>
 ```
 
-Scaled font width by `scale_factor` (e.g. `1.09` for 9% wider) and renames the font family to *DEC Terminal Modern Scaled*.
+Scales font width by `scale_factor` (e.g. `1.09` for 9% wider) and renames the font family to *DEC Terminal Modern Scaled*.
+
+## Output
+
+`DECTerminalModernScaledNerdFontMono-Regular.ttf` — use this anywhere you wish.
 
